@@ -10,11 +10,12 @@ interface ReturnPopupProps {
   cartProducts: Product[];
   cartIds: string[];
   onClose: () => void;
+  onRemove: (id: string) => void;
 }
 
 type AvailabilityResult = ReturnType<typeof checkAvailability> | null;
 
-export default function ReturnPopup({ cartProducts, cartIds, onClose }: ReturnPopupProps) {
+export default function ReturnPopup({ cartProducts, cartIds, onClose, onRemove }: ReturnPopupProps) {
   const [pincode, setPincode] = useState('');
   const [result, setResult] = useState<AvailabilityResult>(null);
   const [loading, setLoading] = useState(false);
@@ -57,6 +58,12 @@ export default function ReturnPopup({ cartProducts, cartIds, onClose }: ReturnPo
                     <div className="p-3">
                       <p className="font-serif text-sm font-light text-charcoal leading-snug">{p.name}</p>
                       <p className="font-sans text-[11px] text-muted mt-1">₹{p.price.toLocaleString('en-IN')}</p>
+                      <button
+                        onClick={() => onRemove(p.id)}
+                        className="mt-2 text-[9px] tracking-[0.2em] uppercase text-muted hover:text-sienna border-b border-transparent hover:border-sienna pb-0.5 transition-colors"
+                      >
+                        Remove
+                      </button>
                     </div>
                   </div>
                 ))}
