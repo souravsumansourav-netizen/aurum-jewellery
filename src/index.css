@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #FAF7F2;
+  font-family: 'Jost', sans-serif;
+  color: #1A1A1A;
+}
+
+.font-serif {
+  font-family: 'Cormorant Garamond', serif;
+}
