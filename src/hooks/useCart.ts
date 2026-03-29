@@ -12,14 +12,19 @@ export function useCart() {
     }
   });
 
-  const [isReturningUser, setIsReturningUser] = useState(false);
-
-  useEffect(() => {
-    const seen = localStorage.getItem(SESSION_KEY);
-    const savedCart = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
-    if (seen === 'true' && savedCart.length > 0) {
-      setIsReturningUser(true);
+  // Check returning user synchronously during init — not inside useEffect
+  const [isReturningUser, setIsReturningUser] = useState<boolean>(() => {
+    try {
+      const seen = localStorage.getItem(SESSION_KEY);
+      const savedCart = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+      return seen === 'true' && savedCart.length > 0;
+    } catch {
+      return false;
     }
+  });
+
+  // Mark session as seen immediately on mount
+  useEffect(() => {
     localStorage.setItem(SESSION_KEY, 'true');
   }, []);
 
