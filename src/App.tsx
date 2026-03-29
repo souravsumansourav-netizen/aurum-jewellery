@@ -6,9 +6,8 @@ import ProductCard from './components/ProductCard';
 import ReturnPopup from './components/ReturnPopup';
 
 export default function App() {
-  const { cart, addToCart, isInCart, isReturningUser, setIsReturningUser } = useCart();
+  const { cart, addToCart, removeFromCart, isInCart, isReturningUser, setIsReturningUser } = useCart();
 
-  // showPopup initialises directly from isReturningUser — no delay
   const [showPopup, setShowPopup] = useState<boolean>(() => {
     try {
       const seen = localStorage.getItem('aurum_session_seen');
@@ -23,7 +22,10 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-ivory">
-      <Navbar cartCount={cart.length} onCartClick={() => { if (cart.length > 0) setShowPopup(true); }} />
+      <Navbar
+        cartCount={cart.length}
+        onCartClick={() => { if (cart.length > 0) setShowPopup(true); }}
+      />
 
       <main className="max-w-6xl mx-auto px-6 py-12">
         <div className="text-center mb-14">
@@ -39,6 +41,7 @@ export default function App() {
               product={product}
               inCart={isInCart(product.id)}
               onAdd={addToCart}
+              onRemove={removeFromCart}
             />
           ))}
         </div>
@@ -49,6 +52,7 @@ export default function App() {
           cartProducts={cartProducts}
           cartIds={cart}
           onClose={() => { setShowPopup(false); setIsReturningUser(false); }}
+          onRemove={removeFromCart}
         />
       )}
     </div>
