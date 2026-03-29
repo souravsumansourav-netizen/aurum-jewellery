@@ -7,7 +7,17 @@ import ReturnPopup from './components/ReturnPopup';
 
 export default function App() {
   const { cart, addToCart, isInCart, isReturningUser, setIsReturningUser } = useCart();
-  const [showPopup, setShowPopup] = useState(isReturningUser);
+
+  // showPopup initialises directly from isReturningUser — no delay
+  const [showPopup, setShowPopup] = useState<boolean>(() => {
+    try {
+      const seen = localStorage.getItem('aurum_session_seen');
+      const savedCart = JSON.parse(localStorage.getItem('aurum_cart') || '[]');
+      return seen === 'true' && savedCart.length > 0;
+    } catch {
+      return false;
+    }
+  });
 
   const cartProducts = products.filter(p => cart.includes(p.id));
 
