@@ -12,9 +12,9 @@ export const products: Product[] = [
   { id: 'p3', name: 'Gold Mangalsutra', price: 52000, category: 'Necklaces', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&h=533&fit=crop' },
   { id: 'p4', name: 'Polki Kundan Earrings', price: 43000, category: 'Earrings', image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?w=400&h=533&fit=crop' },
   { id: 'p5', name: 'Ruby Cocktail Ring', price: 68000, category: 'Rings', image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=533&fit=crop' },
-  { id: 'p6', name: 'Pearl Strand Bracelet', price: 31500, category: 'Bracelets', image: 'https://images.unsplash.com/photo-1573408301185-9519f94816b5?w=400&h=533&fit=crop' },
+  { id: 'p6', name: 'Pearl Strand Bracelet', price: 31500, category: 'Bracelets', image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=533&fit=crop' },
   { id: 'p7', name: 'Gold Bangle Set', price: 94000, category: 'Bangles', image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=400&h=533&fit=crop' },
-  { id: 'p8', name: 'Sapphire Solitaire Ring', price: 112000, category: 'Rings', image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400&h=533&fit=crop' },
+  { id: 'p8', name: 'Sapphire Solitaire Ring', price: 112000, category: 'Rings', image: 'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&h=533&fit=crop' },
   { id: 'p9', name: 'Diamond Stud Earrings', price: 78000, category: 'Earrings', image: 'https://images.unsplash.com/photo-1589207212797-cfd578c00985?w=400&h=533&fit=crop' },
 ];
 
